@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, interactive Tic-Tac-Toe game with AI opponents and multiplayer modes">
+    <title>Tic-Tac-Toe | Strategic Board Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⟡</span>
+                <h1>Tic-Tac-Toe</h1>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon sun">☀</span>
+                <span class="theme-icon moon">☾</span>
+            </button>
+        </header>
+        <main class="main-content">
+            <section class="mode-selection" id="modeSelection">
+                <h2 class="section-title">Choose Your Mode</h2>
+                <div class="mode-cards">
+                    <button class="mode-card" data-mode="single">
+                        <div class="mode-icon">⚔</div>
+                        <h3>Single Player</h3>
+                        <p>Challenge the AI opponent</p>
+                    </button>
+                    <button class="mode-card" data-mode="multi">
+                        <div class="mode-icon">⚭</div>
+                        <h3>Two Players</h3>
+                        <p>Play with a friend</p>
+                    </button>
+                </div>
+            </section>
+            <section class="difficulty-selection hidden" id="difficultySelection">
+                <h2 class="section-title">Select Difficulty</h2>
+                <div class="difficulty-options">
+                    <button class="difficulty-btn" data-difficulty="easy">
+                        <span class="difficulty-label">Easy</span>
+                        <span class="difficulty-desc">Random moves</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="medium">
+                        <span class="difficulty-label">Medium</span>
+                        <span class="difficulty-desc">Strategic play</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="hard">
+                        <span class="difficulty-label">Hard</span>
+                        <span class="difficulty-desc">Unbeatable AI</span>
+                    </button>
+                </div>
+                <button class="back-btn" id="backToMode">← Back</button>
+            </section>
+            <section class="game-section hidden" id="gameSection">
+                <div class="scoreboard">
+                    <div class="score-card player1">
+                        <span class="player-name" id="player1Name">Player X</span>
+                        <span class="score" id="player1Score">0</span>
+                    </div>
+                    <div class="score-card draws">
+                        <span class="player-name">Draws</span>
+                        <span class="score" id="drawsScore">0</span>
+                    </div>
+                    <div class="score-card player2">
+                        <span class="player-name" id="player2Name">Player O</span>
+                        <span class="score" id="player2Score">0</span>
+                    </div>
+                </div>
+                <div class="turn-indicator" id="turnIndicator">
+                    <span class="turn-text">Player X's turn</span>
+                    <span class="turn-icon">●</span>
+                </div>
+                <div class="game-board" id="gameBoard">
+                    <button class="cell" data-index="0" aria-label="Cell 0"></button>
+                    <button class="cell" data-index="1" aria-label="Cell 1"></button>
+                    <button class="cell" data-index="2" aria-label="Cell 2"></button>
+                    <button class="cell" data-index="3" aria-label="Cell 3"></button>
+                    <button class="cell" data-index="4" aria-label="Cell 4"></button>
+                    <button class="cell" data-index="5" aria-label="Cell 5"></button>
+                    <button class="cell" data-index="6" aria-label="Cell 6"></button>
+                    <button class="cell" data-index="7" aria-label="Cell 7"></button>
+                    <button class="cell" data-index="8" aria-label="Cell 8"></button>
+                </div>
+                <div class="game-controls">
+                    <button class="control-btn restart-btn" id="restartBtn">
+                        <span class="btn-icon">↻</span>
+                        <span>Restart</span>
+                    </button>
+                    <button class="control-btn new-game-btn" id="newGameBtn">
+                        <span class="btn-icon">+</span>
+                        <span>New Game</span>
+                    </button>
+                </div>
+            </section>
+            <div class="modal-overlay hidden" id="winnerModal">
+                <div class="modal">
+                    <div class="modal-content">
+                        <div class="winner-icon" id="winnerIcon">★</div>
+                        <h2 class="winner-title" id="winnerTitle">Player X Wins!</h2>
+                        <p class="winner-message" id="winnerMessage">Congratulations on your victory!</p>
+                        <div class="modal-actions">
+                            <button class="modal-btn primary" id="playAgainBtn">Play Again</button>
+                            <button class="modal-btn secondary" id="backToMenuBtn">Main Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>Built with precision and care</p>
+        </footer>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
